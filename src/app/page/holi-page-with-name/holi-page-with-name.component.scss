@@ -1,0 +1,167 @@
+/* holi-landing.component.scss */
+
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../../../assets/imgs/bgimage1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  position: relative;
+  overflow: hidden;
+  animation: bgAnimation 5s infinite forwards;
+}
+
+@keyframes bgAnimation {
+  0% {
+    background-position: center top;
+  }
+  100% {
+    background-position: center bottom;
+  }
+}
+
+.main-page {
+  max-width: 80%;
+  min-width: 50%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding-top: 2%;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
+  color: #ff4500; /* Festive red-orange */
+  font-family: 'Arial', sans-serif;
+  // text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation:  3s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 5px #ff4500, 0 0 10px #ff4500, 0 0 15px #ff4500;
+  }
+  100% {
+    text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500, 0 0 30px #ff4500;
+  }
+}
+
+.main-content {
+  height: 70vh;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 3rem;
+}
+
+.message {
+  font-size: 1.8rem;
+  color: #008000; /* Green for Holi */
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  animation: messageBounce 1.5s infinite alternate;
+}
+
+@keyframes messageBounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.name-input {
+  border: 2px solid #ff4500;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 80%;
+  max-width: 400px;
+  outline: none;
+  transition: all 0.3s ease;
+  animation: inputPulse 2s infinite alternate;
+}
+
+@keyframes inputPulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.name-input:focus {
+  border-color: #006400; /* Dark green */
+  box-shadow: 0 0 10px rgba(0, 128, 0, 0.6);
+}
+
+.share-button {
+  background-color: #008000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: buttonBounce 2s infinite alternate;
+}
+
+@keyframes buttonBounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+.share-button:hover {
+  background-color: #006400; /* Dark green */
+}
+
+.main-input-button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .main-page {
+    max-width: 90%;
+  }
+}

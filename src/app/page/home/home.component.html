@@ -1,0 +1,73 @@
+<section class="main-container">
+  <div class="main-page">
+    <div class="split left" [class.active]="isSplitting"></div>
+    <div class="split right" [class.active]="isSplitting"></div>
+    <div class="main-page-middle">
+      <span>👇👇👇</span>
+      <p>Click on pichkari to see the magic</p>
+      <button (click)="redirectToHoliPage()" class="share-button">
+        <!-- <img src="../../../assets/imgs/pichkari2.jpg" alt="pichkari image" /> -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="300"
+          height="300"
+          viewBox="0 0 300 300"
+        >
+          <!-- Bucket -->
+          <g id="bucket">
+            <ellipse cx="150" cy="250" rx="60" ry="20" fill="#9e5d4b" />
+            <rect x="90" y="180" width="120" height="70" fill="#9e5d4b" />
+            <rect x="110" y="160" width="80" height="30" fill="#9e5d4b" />
+            <path
+              d="M 90 180 C 100 150, 120 140, 150 140 C 180 140, 200 150, 210 180"
+              fill="#9e5d4b"
+            />
+          </g>
+
+          <!-- Holi Colors -->
+          <circle cx="100" cy="200" r="20" fill="red" />
+          <circle cx="150" cy="200" r="20" fill="green" />
+          <circle cx="200" cy="200" r="20" fill="blue" />
+
+          <!-- Pichari (Water Gun) -->
+          <g id="pichari">
+            <rect
+              x="130"
+              y="100"
+              width="40"
+              height="120"
+              rx="10"
+              ry="10"
+              fill="#f9b9b7"
+            />
+            <rect x="140" y="80" width="20" height="20" fill="#e66a64" />
+            <rect x="130" y="60" width="40" height="20" fill="#e66a64" />
+            <rect x="120" y="180" width="20" height="10" fill="#e66a64" />
+          </g>
+
+          <!-- Holi Water Spray -->
+          <path
+            d="M 150 60 C 130 40, 130 20, 150 20 C 170 20, 170 40, 150 60"
+            fill="none"
+            stroke="cyan"
+            stroke-width="4"
+          />
+          <path
+            d="M 150 80 C 130 60, 130 40, 150 40 C 170 40, 170 60, 150 80"
+            fill="none"
+            stroke="yellow"
+            stroke-width="4"
+          />
+        </svg>
+      </button>
+    </div>
+    <!-- <div class="rocket"></div> -->
+
+    <!-- Sparkling Stars -->
+    <div class="star star1"></div>
+    <div class="star star2"></div>
+    <div class="star star3"></div>
+    <div class="star star4"></div>
+    <div class="star star5"></div>
+  </div>
+</section>

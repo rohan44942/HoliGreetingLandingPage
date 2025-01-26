@@ -1,0 +1,35 @@
+<section class="main-container">
+  <div class="main-page">
+    <div class="header">
+      <h1 class="title">होली की हार्दिक शुभकामनाएं</h1>
+    </div>
+
+    <div class="main-content">
+      <p class="message">
+        {{
+          receiverName
+            ? receiverName + " की और से आपको होली की शुभकामनाएं!"
+            : "होली की शुभकामनाएं!"
+        }}
+      </p>
+
+      <div class="main-input-button">
+        <!-- Input remains visible until user submits their name -->
+        <input
+          *ngIf="!isNameSubmitted"
+          type="text"
+          [(ngModel)]="yourName"
+          placeholder="यहाँ अपना पूरा नाम लिखें..."
+          class="name-input"
+        />
+        <button
+          *ngIf="!isNameSubmitted"
+          class="share-button"
+          (click)="shareHoliWish()"
+        >
+          लिंक साझा करें
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
