@@ -1,15 +1,29 @@
 <section class="main-container">
   <div class="main-page">
     <div class="header">
-      <h1 class="title">होली की हार्दिक शुभकामनाएं</h1>
+      <h1 *ngIf="!arrived; else elseBlock">आपको अग्रिम होली की शुभकामनाएँ</h1>
+      <ng-template #elseBlock>
+        <h1 class="title">होली की हार्दिक शुभकामनाएँ</h1>
+      </ng-template>
     </div>
 
     <div class="main-content">
+      <span class="holi-time-left">
+        Time left for Holi: {{ timeLeft.days }} days, {{ timeLeft.hours }} hour,
+        {{ timeLeft.minutes }} minutes
+      </span>
+
       <p class="message">
         {{
-          receiverName
-            ? receiverName + " की और से आपको होली की शुभकामनाएं!"
-            : "होली की शुभकामनाएं!"
+          !arrived
+            ? receiverName
+              ? receiverName + " की और से आपको होली की शुभकामनाएं!"
+              : "होली की शुभकामनाएं!"
+            : receiverName
+            ? receiverName +
+              " की और से आपको होली की अग्रिम
+        शुभकामनाएं!"
+            : "होली की अग्रिम शुभकामनाएं!"
         }}
       </p>
 

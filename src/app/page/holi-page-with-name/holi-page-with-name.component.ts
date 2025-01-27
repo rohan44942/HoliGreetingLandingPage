@@ -1,6 +1,6 @@
-import { NgFor, NgIf } from '@angular/common';
-import { Component, NgModule, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -8,60 +8,65 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './holi-page-with-name.component.html',
   styleUrls: ['holi-page-with-name.component.scss'],
   standalone: true,
-  imports: [FormsModule, NgIf],
+  imports: [FormsModule, CommonModule],
 })
-// export class HoliPageWithNameComponent implements OnInit {
-//   yourName: string = '';
-//   receiverName: string | null = null;
-//   newPersonName: string = '';
-
-//   constructor(private route: ActivatedRoute) {}
-
-//   ngOnInit(): void {
-//     // Get the "name" query parameter to display personalized greeting
-//     this.receiverName = this.route.snapshot.queryParamMap.get('name');
-//     if (!this.receiverName) {
-//       this.receiverName = 'Nitin';
-//     }
-//   }
-
-//   shareHoliWish(): void {
-//     if (this.yourName.trim()) {
-//       const shareableLink = `${
-//         window.location.origin
-//       }/holi%3Fname%3D${encodeURIComponent(this.yourName)}`;
-//       const message = `होली की शुभकामनाएं! 🌸
-//       लिंक पर क्लिक करें: ${shareableLink}`;
-
-//       // Share on WhatsApp
-//       window.open(
-//         `https://wa.me/?text=${encodeURIComponent(message)}`,
-//         '_blank'
-//       );
-//     } else {
-//       alert('कृपया अपना नाम दर्ज करें!');
-//     }
-//   }
-// }
 export class HoliPageWithNameComponent implements OnInit {
   yourName: string = '';
-  receiverName: string = 'Nitin'; // Default greeting name
-  isNameSubmitted: boolean = false; // Tracks if the name has been submitted
+  receiverName: string = 'Nitin';
+  isNameSubmitted: boolean = false; 
+  arrived: boolean = false; 
+  currentDate = new Date();
+  timeLeft!: any;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // Get the "name" query parameter
     const queryName = this.route.snapshot.queryParamMap.get('name');
     if (queryName) {
-      this.receiverName = queryName; // Override default if query param exists
+      this.receiverName = queryName; 
     }
+
+    // Check if Holi 2025 is approaching
+    this.advanceWish();
+    this.timeLeft = this.calculateTimeLeft();
+  }
+
+  advanceWish() {
+    const holiDate = 6;
+    const holiMonth = 2;
+    const holiYear = 2025;
+
+    if (
+      holiYear > this.currentDate.getFullYear() ||
+      (holiYear === this.currentDate.getFullYear() &&
+        holiMonth > this.currentDate.getMonth()) ||
+      (holiYear === this.currentDate.getFullYear() &&
+        holiMonth === this.currentDate.getMonth() &&
+        holiDate >= this.currentDate.getDate())
+    ) {
+      this.arrived = true;  
+    }
+  }
+  holiDate = new Date(2025, 2, 6);
+
+  // Calculate the time difference
+
+  calculateTimeLeft() {
+    const timeDifference = this.holiDate.getTime() - this.currentDate.getTime();
+
+    const days = Math.floor(timeDifference / (1000 * 3600 * 24));
+    const hours = Math.floor(
+      (timeDifference % (1000 * 3600 * 24)) / (1000 * 3600)
+    );
+    const minutes = Math.floor((timeDifference % (1000 * 3600)) / (1000 * 60));
+
+    return { days, hours, minutes };
   }
 
   shareHoliWish(): void {
     // Validate that the user has entered a name
     if (this.yourName.trim()) {
-      this.isNameSubmitted = true; // Mark the name as submitted
+      this.isNameSubmitted = true;  
       const shareableLink = `${
         window.location.origin
       }/home?name=${encodeURIComponent(this.yourName)}`;

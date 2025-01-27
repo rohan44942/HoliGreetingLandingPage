@@ -165,3 +165,24 @@
     max-width: 90%;
   }
 }
+.holi-time-left {
+  font-size: 1.2rem; /* Set the font size */
+  color: #ff4500; /* Orange color for Holi */
+  font-family: 'Arial', sans-serif; /* Make it clean and modern */
+  background-color: rgba(255, 255, 255, 0.8); /* Slight white background to make text stand out */
+  padding: 10px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  margin-top: 20px; /* Space above the text */
+  text-align: center; /* Center-align the text */
+  transition: transform 0.3s ease-in-out;
+}
+
+.holi-time-left:hover {
+  transform: scale(1.05); /* Slightly grow the text on hover */
+  color: #d2691e; /* Darker orange when hovered */
+}
+
+.holi-time-left span {
+  font-weight: bold; /* Bold the text for emphasis */
+}
