@@ -13,8 +13,8 @@ import { FormsModule } from '@angular/forms';
 export class HoliPageWithNameComponent implements OnInit {
   yourName: string = '';
   receiverName: string = 'Nitin';
-  isNameSubmitted: boolean = false; 
-  arrived: boolean = false; 
+  isNameSubmitted: boolean = false;
+  arrived: boolean = false;
   currentDate = new Date();
   timeLeft!: any;
 
@@ -23,7 +23,7 @@ export class HoliPageWithNameComponent implements OnInit {
   ngOnInit(): void {
     const queryName = this.route.snapshot.queryParamMap.get('name');
     if (queryName) {
-      this.receiverName = queryName; 
+      this.receiverName = queryName;
     }
 
     // Check if Holi 2025 is approaching
@@ -32,7 +32,7 @@ export class HoliPageWithNameComponent implements OnInit {
   }
 
   advanceWish() {
-    const holiDate = 6;
+    const holiDate = 14;
     const holiMonth = 2;
     const holiYear = 2025;
 
@@ -44,10 +44,10 @@ export class HoliPageWithNameComponent implements OnInit {
         holiMonth === this.currentDate.getMonth() &&
         holiDate >= this.currentDate.getDate())
     ) {
-      this.arrived = true;  
+      this.arrived = true;
     }
   }
-  holiDate = new Date(2025, 2, 6);
+  holiDate = new Date(2025, 2, 14);
 
   // Calculate the time difference
 
@@ -66,7 +66,7 @@ export class HoliPageWithNameComponent implements OnInit {
   shareHoliWish(): void {
     // Validate that the user has entered a name
     if (this.yourName.trim()) {
-      this.isNameSubmitted = true;  
+      this.isNameSubmitted = true;
       const shareableLink = `${
         window.location.origin
       }/home?name=${encodeURIComponent(this.yourName)}`;
